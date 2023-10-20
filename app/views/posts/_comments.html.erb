@@ -1,0 +1,18 @@
+<div>
+    <strong>Comments:</strong>
+    <% post.comments.each do |comment| %>
+      <p>
+        <%= comment.content %>
+      </p>
+    <% end %>
+  <%= form_with(model: Comment.new) do |form| %>
+    <%= form.hidden_field :post_id, value: post.id %>
+    <div>
+      <%= form.rich_text_area :content %>
+    </div>
+    <div>
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>
+<br/>
